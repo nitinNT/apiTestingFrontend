@@ -1,10 +1,10 @@
 import "./styles.css";
-
+import { ChakraProvider } from "@chakra-ui/react";
+import Home from "./components/home/Home";
 export default function App() {
   return (
-    <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
-    </div>
+    <ChakraProvider>
+      <Home />
+    </ChakraProvider>
   );
 }

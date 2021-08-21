@@ -27,7 +27,6 @@ export default function Home() {
             <Input
               placeholder="Postman Collection Link here ..."
               size="md"
-              width="70%"
               onChange={(e) => setpostmanColLink(e.target.value)}
             />
             {emailsList.map((content, i) => {

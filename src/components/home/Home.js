@@ -1,8 +1,17 @@
-import { Flex, Box, Spacer, Input, Stack, Button } from "@chakra-ui/react";
+import { AddIcon } from "@chakra-ui/icons";
+import {
+  Flex,
+  Box,
+  Spacer,
+  Input,
+  Stack,
+  Button,
+  Icon
+} from "@chakra-ui/react";
 import { useState } from "react";
 export default function Home() {
   const [postmanColLink, setpostmanColLink] = useState("");
-  const [emailsList, setEmailsList] = useState([]);
+  const [emailsList, setEmailsList] = useState([{ email: "" }]);
   const buttonAction = () => {};
   return (
     <Box>
@@ -18,21 +27,35 @@ export default function Home() {
             <Input
               placeholder="Postman Collection Link here ..."
               size="md"
+              width="70%"
               onChange={(e) => setpostmanColLink(e.target.value)}
             />
-            <Flex>
-              {emailsList.map((content) => {
-                return (
-                  <Box>
+            {emailsList.map((content, i) => {
+              return (
+                <Flex>
+                  <Box width="70%">
                     <Input
                       placeholder="Email here..."
-                      value={content}
+                      onChange={(e) => (content.email = e.target.value)}
                       size="md"
                     />
                   </Box>
-                );
-              })}
-            </Flex>
+                  <Spacer />
+                  <Box>
+                    {i === emailsList.length - 1 && i !== 0 ? (
+                      <p></p>
+                    ) : (
+                      <Icon
+                        as={AddIcon}
+                        onClick={() =>
+                          setEmailsList([...emailsList, { email: "" }])
+                        }
+                      />
+                    )}
+                  </Box>
+                </Flex>
+              );
+            })}
 
             <Button width={40} onClick={buttonAction}>
               Submit

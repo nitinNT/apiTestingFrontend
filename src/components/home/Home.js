@@ -36,6 +36,7 @@ export default function Home() {
                   <Box width="70%">
                     <Input
                       placeholder="Email here..."
+                      type="email"
                       onChange={(e) => (content.email = e.target.value)}
                       size="md"
                     />
@@ -58,7 +59,7 @@ export default function Home() {
             })}
 
             <Button width={40} onClick={buttonAction}>
-              Submit
+              Run
             </Button>
           </Stack>
         </Box>
